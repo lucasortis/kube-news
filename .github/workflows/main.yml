@@ -41,6 +41,8 @@ jobs:
       uses: Azure/k8s-deploy@v4.9
       with:
         manifests: ./k8s/deployment.yaml
+        images: |
+          lucasortis/kube-news:${{github.workflow_sha}}
     
       
 
