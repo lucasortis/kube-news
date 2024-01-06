@@ -9,12 +9,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4.1.1
-    - name: "Configure AWS Credentials"
-      uses: aws-actions/configure-aws-credentials@v4
+    - name: Docker Login
+      uses: docker/login-action@v3.0.0
       with:
-        aws-region: us-east-1
-        aws-access-key-id: test
-        aws-secret-access-key: test
+        username: ${{secrets.DOCKERHUB_USER}}
+        password: ${{secrets.DOCKERHUB_PASSWORD}}
     - name: Build and push Docker images
       uses: docker/build-push-action@v5.1.0      
       with:
