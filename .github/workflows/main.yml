@@ -23,5 +23,5 @@ jobs:
         file: ./src/Dockerfile
         push: true
         tags: |
-          lucasortis/kube-news:v1
+          lucasortis/kube-news:{{github.run_number}}
           lucasortis/kube-news:latest
