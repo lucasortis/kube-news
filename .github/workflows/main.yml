@@ -15,11 +15,11 @@ jobs:
         username: ${{secrets.DOCKERHUB_USER}}
         password: ${{secrets.DOCKERHUB_PASSWORD}}
     - name: Build and push Docker images
-      uses: docker/build-push-action@v5.1.0      
+      uses: docker/build-push-action@v5.1.0
       with:
         context: ./src
         file: ./src/Dockerfile
         push: true
         tags: |
-          public.ecr.aws/i9w0w5o5/kube-news:v1
-          public.ecr.aws/i9w0w5o5/kube-news:latest
+          lucasortis/kube-news:v1
+          lucasortis/kube-news:latest
