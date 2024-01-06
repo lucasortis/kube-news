@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: lucasortis/kube-news:${{github.workflow_sha}}
+          image: lucasortis/kube-news
           ports:
           - containerPort: 8080
           env:
