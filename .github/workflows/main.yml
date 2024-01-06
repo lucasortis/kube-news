@@ -1,0 +1,29 @@
+name: CI-CD
+
+on: 
+  push:
+    branches: ["main"]
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4.1.1
+    
+    - name: "Configure AWS Credentials" Action for GitHub Actions
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-east-1
+        aws-access-key-id: test
+        aws-secret-access-key: test
+      
+      
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v5.1.0      
+      with:
+        context: ./src
+        file: ./src/Dockerfile
+        push: true
+        tags: |
+          public.ecr.aws/i9w0w5o5/kube-news:v1
+          public.ecr.aws/i9w0w5o5/kube-news:latest
